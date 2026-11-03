@@ -1312,3 +1312,50 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
   background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.3), transparent);
 }
+
+
+/* Persian typography and alignment refinements */
+:root {
+  --font-persian: 'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
+}
+html, body {
+  font-family: 'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
+  direction: rtl;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+p, li, label, input, textarea, select, button {
+  font-family: 'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
+  letter-spacing: 0 !important;
+  word-spacing: normal;
+}
+p {
+  text-align: start;
+  text-justify: auto;
+  line-height: 2;
+  white-space: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
+  letter-spacing: 0 !important;
+  overflow-wrap: anywhere;
+}
+input, textarea, select {
+  text-align: right;
+}
+button, .btn, .nav-link, .chip-btn, .badge {
+  line-height: 1.7;
+  white-space: normal;
+}
+.brand-name-en, .font-editorial {
+  direction: ltr;
+}
+@media (max-width: 600px) {
+  .container { padding-inline: 1rem; }
+  h1 { line-height: 1.5 !important; }
+  p { line-height: 2.05; }
+}
