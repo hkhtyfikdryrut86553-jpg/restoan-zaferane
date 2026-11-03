@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تماس و رزرو میز | Saffron & Charcoal زعفران و زغال</title>
+    <meta name="description" content="رزرو آنلاین میز VIP، سالن تشریفات و مراسم در رستوران زعفران و زغال همراه با ارتباط مستقیم تلگرامی، نقشه و ساعات کاری" />
+    <meta property="og:title" content="تماس و رزرو میز زعفران و زغال" />
+    <meta property="og:description" content="رزرو آنلاین میز VIP، سالن تشریفات و مراسم در رستوران زعفران و زغال همراه با ارتباط مستقیم تلگرامی، نقشه و ساعات کاری" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .faq-item {
+        background: var(--surface-container);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        margin-bottom: 0.85rem;
+        overflow: hidden;
+        transition: all var(--transition-fast);
+      }
+      .faq-question {
+        padding: 1.15rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        cursor: pointer;
+        color: #fff;
+        user-select: none;
+      }
+      .faq-question:hover {
+        color: var(--primary);
+      }
+      .faq-icon {
+        color: var(--primary);
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+      }
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+      }
+      .faq-answer {
+        padding: 0 1.25rem 1.15rem;
+        font-size: 0.9rem;
+        color: var(--on-surface-variant);
+        line-height: 1.8;
+        display: none;
+        border-top: 1px solid rgba(217, 119, 6, 0.1);
+        padding-top: 0.85rem;
+      }
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div style="background: var(--surface-container-lowest); border-bottom: 1px solid var(--border-subtle); padding: 0.4rem 0; font-size: 0.8rem; color: var(--on-surface-variant);">
+      <div class="container flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e;"></span>
+          <span>پذیرش رزرو برای امروز و روزهای آتی فعال است</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="tel:02122000000" style="color: var(--on-surface-variant); text-decoration: none;" class="footer-link">
+            <span>📞</span> ۰۲۱-۲۲۰۰۰۰۰۰
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <span style="font-size: 1.5rem; color: var(--primary);">✦</span>
+          </div>
+          <div class="brand-title-box">
+            <div class="brand-name-fa">زعفران <span>&</span> زغال</div>
+            <div class="brand-name-en">Reservations & Contact</div>
+          </div>
+        </a>
+
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link">صفحه اصلی</a>
+          <a href="products.html" class="nav-link">منو و محصولات</a>
+          <a href="about.html" class="nav-link">داستان ما و اصالت</a>
+          <a href="contact.html" class="nav-link active">تماس و رزرو میز</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="btn-icon open-cart-trigger" title="مشاهده سبد سفارش">
+            <span style="font-size: 1.25rem;">🛒</span>
+            <span class="cart-badge" style="display: none;">۰</span>
+          </button>
+
+          <a href="javascript:void(0)" onclick="triggerTelegramOrder()" class="btn btn-telegram btn-sm btn-pill" title="سفارش سریع در تلگرام">
+            <span>✈️ سفارش تلگرام</span>
+          </a>
+
+          <button type="button" class="mobile-toggle" onclick="openMobileMenu()" aria-label="منوی موبایل">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="mobile-drawer">
+      <div class="mobile-drawer-content">
+        <div class="mobile-drawer-header">
+          <div class="brand-name-fa" style="font-size: 1.15rem;">زعفران <span>&</span> زغال</div>
+          <button type="button" class="modal-close-btn" style="position: static;" onclick="closeMobileMenu()">✕</button>
+        </div>
+
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>🏛️</span> صفحه اصلی
+          </a>
+          <a href="products.html" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>🍽️</span> منو و سفارش غذاها
+          </a>
+          <a href="about.html" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>📖</span> داستان برند و شیوه پخت
+          </a>
+          <a href="contact.html" class="mobile-nav-link active" onclick="closeMobileMenu()">
+            <span>📅</span> رزرو میز و تماس
+          </a>
+        </nav>
+
+        <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.75rem;">
+          <a href="javascript:void(0)" onclick="triggerTelegramOrder(); closeMobileMenu();" class="btn btn-telegram btn-pill" style="width: 100%;">
+            <span>سفارش مستقیم در تلگرام</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact & Reservation Header -->
+    <section style="padding: 3.5rem 0 2rem; background: linear-gradient(180deg, rgba(26, 24, 22, 0.7) 0%, rgba(18, 17, 16, 1) 100%); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container text-center">
+        <div class="badge badge-gold" style="margin-bottom: 0.75rem;">پذیرایی تشریفاتی و سالن‌های اختصاصی</div>
+        <h1 style="font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 800; color: #fff; margin-bottom: 0.75rem;">
+          تماس و <span style="color: var(--primary);">رزرو میز اختصاصی</span>
+        </h1>
+        <p style="font-size: 1rem; color: var(--on-surface-variant); max-width: 650px; margin: 0 auto; line-height: 1.8;">
+          برای اطمینان از میزبانی شایسته در مهمانی‌های خانوادگی، جلسات دیپلماتیک یا سالگردهای خاطره‌انگیز، میز خود را از پیش ثبت فرمایید.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Form & Contact Info Section -->
+    <main style="padding: 4rem 0 5rem;">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Reservation Form Column (7 Cols) -->
+          <div class="lg:grid-cols-7 glass-card" style="grid-column: span 7; padding: 2.5rem; border-color: rgba(217, 119, 6, 0.35);">
+            <div class="flex items-center gap-3" style="margin-bottom: 1.5rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(217, 119, 6, 0.15); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                📅
+              </div>
+              <div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff;">فرم رزرو میز و تشریفات</h3>
+                <p style="font-size: 0.85rem; color: var(--on-surface-variant);">اطلاعات بلافاصله به میزبان تلگرام ارسال و در لحظه پیگیری خواهد شد.</p>
+              </div>
+            </div>
+
+            <!-- Success Box (Initially hidden) -->
+            <div id="reservation-success-box" style="display: none; background: rgba(21, 128, 61, 0.15); border: 1px solid rgba(21, 128, 61, 0.4); border-radius: var(--radius-lg); padding: 2rem; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 0.75rem;">🎉</div>
+              <h4 style="font-size: 1.35rem; font-weight: 800; color: #79db8d; margin-bottom: 0.5rem;">درخواست رزرو شما ثبت گردید!</h4>
+              <p style="font-size: 0.95rem; color: #fff; line-height: 1.8; margin-bottom: 1.5rem;">
+                اطلاعات میز انتخابی شما در تلگرام آماده ارسال شد. همکاران تشریفات ما تا دقایقی دیگر با شما تماس خواهند گرفت.
+              </p>
+              <button type="button" class="btn btn-secondary btn-pill" onclick="document.getElementById('reservation-success-box').style.display='none'; document.getElementById('reservation-form').style.display='block';">
+                ثبت رزرو جدید
+              </button>
+            </div>
+
+            <!-- The Form -->
+            <form id="reservation-form" onsubmit="handleReservationSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="form-group">
+                  <label class="form-label" for="res_name">نام و نام‌خانوادگی میزبان *</label>
+                  <input type="text" id="res_name" name="res_name" class="form-input" placeholder="مثال: مهندس رادمهر" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="res_phone">شماره تلفن همراه *</label>
+                  <input type="tel" id="res_phone" name="res_phone" class="form-input" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" required />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="form-group">
+                  <label class="form-label" for="res_guests">تعداد مهمانان</label>
+                  <select id="res_guests" name="res_guests" class="form-select">
+                    <option value="۲">۲ نفر (دونفره رمانتیک)</option>
+                    <option value="۴">۴ نفر (خانوادگی کوچک)</option>
+                    <option value="۶">۶ نفر</option>
+                    <option value="۸">۸ نفر</option>
+                    <option value="۱۰">۱۰ نفر</option>
+                    <option value="۱۵">۱۵ نفر (میز ویژه جلسه)</option>
+                    <option value="۲۰+">بیش از ۲۰ نفر (سالن کامل)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="res_date">تاریخ حضور</label>
+                  <input type="date" id="res_date" name="res_date" class="form-input" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="res_time">ساعت حضور</label>
+                  <select id="res_time" name="res_time" class="form-select">
+                    <option value="۱۳:۰۰ (ناهار)">۱۳:۰۰ (ناهار)</option>
+                    <option value="۱۴:۳۰ (ناهار)">۱۴:۳۰ (ناهار)</option>
+                    <option value="۲۰:۰۰ (شام)">۲۰:۰۰ (شام)</option>
+                    <option value="۲۱:۳۰ (شام)">۲۱:۳۰ (شام)</option>
+                    <option value="۲۲:۳۰ (شام دیرگاه)">۲۲:۳۰ (شام دیرگاه)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="res_area">محیط و فضای سالن</label>
+                <select id="res_area" name="res_area" class="form-select">
+                  <option value="سالن اصلی زعفران (نزدیک موسیقی زنده)">سالن اصلی زعفران (نزدیک موسیقی زنده عود و قانون)</option>
+                  <option value="بالکن اختصاصی باغچه زمستانی">بالکن اختصاصی باغچه زمستانی با منظره</option>
+                  <option value="اتاق VIP آیین (کاملاً اختصاصی و سایلنت)">اتاق VIP آیین (کاملاً اختصاصی، مناسب جلسات و قرارداد)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="res_notes">توضیحات مناسبت، گل‌آرایی یا کیک (اختیاری)</label>
+                <textarea id="res_notes" name="res_notes" class="form-textarea" rows="3" placeholder="مناسبت تولد یا سالگرد، نیاز به چیدمان گل روی میز، صندلی کودک، یا هر سفارش شخصی‌سازی شده دیگر..."></textarea>
+              </div>
+
+              <div class="flex gap-4" style="margin-top: 1.5rem;">
+                <button type="submit" class="btn btn-telegram btn-lg btn-pill" style="flex: 1;">
+                  <span>ارسال رزرو به تلگرام رستوران</span>
+                  <span>✈️</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Contact Details & Map Column (5 Cols) -->
+          <div class="lg:grid-cols-5" style="grid-column: span 5; display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <!-- Direct Info Card -->
+            <div class="card" style="padding: 2rem;">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--primary);">🏛️</span> اطلاعات عمارت
+              </h3>
+
+              <div style="display: flex; flex-direction: column; gap: 1.15rem; font-size: 0.92rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--primary); font-size: 1.2rem;">📍</span>
+                  <div>
+                    <strong style="color: #fff; display: block;">نشانی عمارت:</strong>
+                    <span style="color: var(--on-surface-variant); line-height: 1.7;">
+                      تهران، خیابان ولیعصر، نرسیده به میدان تجریش، خیابان زعفرانیه، نبش کوچه بوستان، پلاک ۲۴
+                    </span>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--primary); font-size: 1.2rem;">📞</span>
+                  <div>
+                    <strong style="color: #fff; display: block;">تلفن‌های تماس مستقیم:</strong>
+                    <span style="color: var(--primary-light); font-weight: 700; direction: ltr; display: inline-block;">۰۲۱-۲۲۰۰۰۰۰۰</span>
+                    <span style="color: var(--on-surface-muted);"> | </span>
+                    <span style="color: var(--primary-light); font-weight: 700; direction: ltr; display: inline-block;">۰۲۱-۲۲۰۰۰۰۰۱</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: #229ed9; font-size: 1.2rem;">✈️</span>
+                  <div>
+                    <strong style="color: #fff; display: block;">ارتباط مستقیم در تلگرام:</strong>
+                    <a href="https://t.me/saffron_charcoal_admin" target="_blank" rel="noopener noreferrer" style="color: #229ed9; text-decoration: none; font-weight: 600;">
+                      @saffron_charcoal_admin
+                    </a>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--primary); font-size: 1.2rem;">⏰</span>
+                  <div>
+                    <strong style="color: #fff; display: block;">ساعات سرویس‌دهی:</strong>
+                    <span style="color: var(--on-surface-variant);">همه روزه: ۱۲:۰۰ الی ۱۶:۳۰ و ۱۹:۳۰ الی ۲۳:۳۰</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stylized Interactive Map Card -->
+            <div class="card" style="padding: 1.5rem; position: relative; overflow: hidden;">
+              <div style="height: 180px; border-radius: var(--radius-md); overflow: hidden; background: #1c1a18; position: relative; display: flex; align-items: center; justify-content: center;">
+                <!-- Stylized Dark Map Visual -->
+                <div style="position: absolute; inset: 0; background-image: radial-gradient(#3a3632 1px, transparent 1px); background-size: 16px 16px; opacity: 0.4;"></div>
+                <div style="position: relative; z-index: 2; text-align: center;">
+                  <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: #121110; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 0.5rem; box-shadow: 0 0 20px rgba(217, 119, 6, 0.7);">
+                    📍
+                  </div>
+                  <div style="font-weight: 700; color: #fff;">عمارت زعفران و زغال</div>
+                  <div style="font-size: 0.78rem; color: var(--primary-light);">زعفرانیه، خیابان ولیعصر</div>
+                </div>
+              </div>
+
+              <div class="flex gap-2" style="margin-top: 1rem;">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm btn-pill" style="flex: 1; text-align: center;">
+                  Google Maps
+                </a>
+                <a href="https://neshan.org" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm btn-pill" style="flex: 1; text-align: center;">
+                  مسیریابی نشان
+                </a>
+                <a href="https://balad.ir" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm btn-pill" style="flex: 1; text-align: center;">
+                  مسیریابی بلد
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- FAQ Section -->
+        <div style="margin-top: 5rem;">
+          <div class="section-header" style="margin-bottom: 2.5rem;">
+            <div class="section-tag"><span>✦</span> پرسش‌های پرتکرار</div>
+            <h2 class="section-title">پاسخ به سوالات مهمانان</h2>
+          </div>
+
+          <div style="max-width: 820px; margin: 0 auto;">
+            <!-- FAQ 1 -->
+            <div class="faq-item active">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>آیا رستوران دارای پارکینگ اختصاصی است؟</span>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                بله، عمارت زعفران و زغال دارای پارکینگ سرپوشیده اختصاصی با گنجایش ۵۰ خودرو به همراه سرویس ولت‌پارک (پارک‌بان اختصاصی) جهت رفاه میهمانان گرامی می‌باشد.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>آیا امکان برگزاری جشن تولد یا سالگرد و گل‌آرایی وجود دارد؟</span>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                بله، تیم تشریفات ما خدمات ویژه شمع‌آرایی، گل‌آرایی طبیعی و هماهنگی موسیقی را در سالن اختصاصی یا میز رزرو شده شما ارائه می‌نمایند. کافیست در فرم رزرو یا هنگام هماهنگی تلگرامی قید بفرمایید.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>بسته‌های کادویی زعفران قائنات چگونه ارسال می‌شوند؟</span>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                بسته‌های نفیس خاتم و کریستال در تهران ظرف کمتر از ۲ ساعت با پیک اختصاصی و در سایر شهرها از طریق پست ویژه پیشتاز همراه با بیمه کالا و شناسنامه آزمایشگاهی اصالت ارسال می‌گردند.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>آیا برای افراد گیاه‌خوار (Vegetarian) غذای مناسب دارید؟</span>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                بله، کشک بادمجان دودی، میرزاقاسمی زغالی گیلان، زیتون پرورده رودبار و بورانی‌های فصلی کاملاً گیاهی و متناسب با سلیقه دوستان وجترین طبخ می‌شوند.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand-logo" style="margin-bottom: 1.25rem;">
+              <div class="brand-icon">
+                <span style="font-size: 1.4rem; color: var(--primary);">✦</span>
+              </div>
+              <div class="brand-title-box">
+                <div class="brand-name-fa" style="font-size: 1.2rem;">زعفران <span>&</span> زغال</div>
+                <div class="brand-name-en">Saffron & Charcoal</div>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.8;">
+              روایتگر شکوه سفره ایرانی با عطر سحرانگیز زعفران سرگل قائنات و آتش آرام‌بخش زغال گردو.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">صفحات سایت</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" class="footer-link">صفحه اصلی</a></li>
+              <li><a href="products.html" class="footer-link">منوی کباب‌ها و غذاها</a></li>
+              <li><a href="about.html" class="footer-link">داستان ما و شیوه پخت</a></li>
+              <li><a href="contact.html" class="footer-link">رزرو میز و تشریفات</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">ساعت پذیرایی</h4>
+            <ul class="footer-links">
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">ناهار: ۱۲:۰۰ الی ۱۶:۳۰</li>
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">شام: ۱۹:۳۰ الی ۲۳:۳۰</li>
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">هفت روز هفته بدون تعطیلی</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">آدرس و تلگرام</h4>
+            <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.8;">
+              تهران، زعفرانیه، خیابان ولیعصر، پلاک ۲۴
+            </p>
+            <div style="font-size: 0.95rem; color: var(--primary); font-weight: 700; margin-top: 0.5rem;">
+              تلگرام: @saffron_charcoal_admin
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© ۱۴۰۳ تمامی حقوق محفوظ است. عمارت لوکس «زعفران و زغال».</div>
+          <div style="color: var(--primary-light);">آماده بارگذاری مستقیم روی GitHub Pages</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+      <button type="button" class="floating-btn-cart open-cart-trigger" title="مشاهده سبد سفارش" style="display: none;">
+        <span style="font-size: 1.4rem;">🛒</span>
+        <span class="cart-badge">۰</span>
+      </button>
+
+      <a href="javascript:void(0)" onclick="triggerTelegramOrder()" class="floating-btn-telegram" title="ثبت سفارش در تلگرام">
+        <span style="font-size: 1.4rem;">✈️</span>
+      </a>
+    </div>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+      <div class="cart-drawer">
+        <div class="cart-drawer-header">
+          <div class="flex items-center gap-2">
+            <span style="color: var(--primary); font-size: 1.25rem;">🛒</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">سبد سفارش شما</h3>
+          </div>
+          <button type="button" class="modal-close-btn close-cart-trigger" style="position: static;">✕</button>
+        </div>
+
+        <div class="cart-drawer-body">
+          <div id="cart-empty-state" style="text-align: center; padding: 3rem 1rem; color: var(--on-surface-muted);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🍽️</div>
+            <div style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">سبد سفارش خالی است</div>
+            <p style="font-size: 0.88rem;">غذای خود را از منو انتخاب کنید.</p>
+          </div>
+
+          <div id="cart-items-container"></div>
+        </div>
+
+        <div class="cart-drawer-footer">
+          <div class="flex justify-between items-center" style="font-size: 0.9rem; color: var(--on-surface-variant);">
+            <span>مجموع اقلام:</span>
+            <span id="cart-subtotal-price" style="font-weight: 700; color: #fff;">۰ تومان</span>
+          </div>
+
+          <div class="flex justify-between items-center" style="font-size: 1.1rem; font-weight: 800; color: var(--primary); padding-top: 0.5rem; border-top: 1px solid var(--border-subtle);">
+            <span>مبلغ قابل پرداخت:</span>
+            <span id="cart-total-price">۰ تومان</span>
+          </div>
+
+          <button type="button" id="cart-telegram-order-btn" class="btn btn-telegram btn-lg btn-pill" style="width: 100%;" onclick="triggerTelegramOrder()">
+            <span>✈️ ارسال فاکتور و ثبت در تلگرام</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick View Dish Modal -->
+    <div id="dish-detail-modal" class="modal-overlay">
+      <div class="modal-dialog">
+        <button type="button" class="modal-close-btn" onclick="closeDishModal()">✕</button>
+        <div id="dish-detail-content"></div>
+      </div>
+    </div>
+
+    <!-- Telegram Checkout Modal -->
+    <div id="telegram-checkout-modal" class="modal-overlay">
+      <div class="modal-dialog" style="max-width: 520px; padding: 1.75rem;">
+        <button type="button" class="modal-close-btn" onclick="closeTelegramModal()">✕</button>
+        
+        <div class="flex items-center gap-3" style="margin-bottom: 1.25rem;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: #229ed9; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">✈️</div>
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff;">ثبت سفارش در تلگرام</h3>
+            <p style="font-size: 0.82rem; color: var(--on-surface-variant);">اطلاعات زیر برای صدور پیش‌فاکتور در تلگرام استفاده می‌شود.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--surface-container-low); padding: 0.85rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 1.25rem; font-size: 0.88rem;">
+          <div class="flex justify-between items-center" style="margin-bottom: 0.35rem;">
+            <span>تعداد کل آیتم‌ها:</span>
+            <span id="tg-modal-count" style="font-weight: 700; color: var(--primary);">۰</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>مبلغ کل فاکتور:</span>
+            <span id="tg-modal-total" style="font-weight: 800; color: var(--primary);">۰ تومان</span>
+          </div>
+        </div>
+
+        <form id="telegram-order-form" onsubmit="submitTelegramOrder(event)">
+          <div class="form-group">
+            <label class="form-label" for="tg-name">نام و نام‌خانوادگی</label>
+            <input type="text" id="tg-name" class="form-input" placeholder="مثال: دکتر مهرداد کیانی" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-phone">شماره تماس (جهت هماهنگی)</label>
+            <input type="tel" id="tg-phone" class="form-input" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-type">نحوه دریافت سفارش</label>
+            <select id="tg-type" class="form-select">
+              <option value="ارسال با پیک اکسپرس به آدرس">ارسال با پیک اکسپرس به آدرس</option>
+              <option value="تحویل حضوری در رستوران (بیرون‌بر)">تحویل حضوری در رستوران (بیرون‌بر)</option>
+              <option value="سرو روی میز داخل رستوران">سرو روی میز داخل رستوران (حضور مشتری)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-address">آدرس تحویل یا شماره میز</label>
+            <textarea id="tg-address" class="form-textarea" rows="2" placeholder="نشانی دقیق، زنگ و طبقه (یا شماره میز در صورت حضور)"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-notes">یادداشت و ترجیحات (اختیاری)</label>
+            <input type="text" id="tg-notes" class="form-input" placeholder="مثلاً: بدون پیاز، سس اضافه، نان داغ" />
+          </div>
+
+          <div class="flex gap-3" style="margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-telegram btn-lg btn-pill" style="flex: 1;">
+              <span>ارسال مستقیم به تلگرام</span>
+              <span>✈️</span>
+            </button>
+            <button type="button" class="btn btn-ghost btn-lg btn-pill" onclick="closeTelegramModal()">
+              انصراف
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+      function toggleFaq(el) {
+        const item = el.parentElement;
+        item.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>

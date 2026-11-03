@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saffron & Charcoal | زعفران و زغال - رستوران مجلل ایرانی</title>
+    <meta name="description" content="وب‌سایت مجلل رستوران و محصولات لوکس زعفران و زغال با پشتیبانی کامل راست‌چین (RTL)، منوی تعاملی و سفارش آنلاین تلگرام" />
+    <meta property="og:title" content="Saffron & Charcoal | زعفران و زغال" />
+    <meta property="og:description" content="وب‌سایت مجلل رستوران و محصولات لوکس زعفران و زغال با پشتیبانی کامل راست‌چین (RTL)، منوی تعاملی و سفارش آنلاین تلگرام" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Pure Standalone Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Top Bar / Live Status -->
+    <div style="background: var(--surface-container-lowest); border-bottom: 1px solid var(--border-subtle); padding: 0.4rem 0; font-size: 0.8rem; color: var(--on-surface-variant);">
+      <div class="container flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e;"></span>
+          <span>هم‌اکنون در حال پذیرایی • ساعت کاری: ۱۲:۰۰ تا ۲۳:۳۰</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="tel:02122000000" style="color: var(--on-surface-variant); text-decoration: none; display: flex; items-center gap: 0.35rem;" class="footer-link">
+            <span>📞</span> ۰۲۱-۲۲۰۰۰۰۰۰
+          </a>
+          <span style="color: var(--border-subtle);">|</span>
+          <a href="https://t.me/saffron_charcoal_admin" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">
+            ارتباط مستقیم در تلگرام
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <span style="font-size: 1.5rem; color: var(--primary);">✦</span>
+          </div>
+          <div class="brand-title-box">
+            <div class="brand-name-fa">زعفران <span>&</span> زغال</div>
+            <div class="brand-name-en">Saffron & Charcoal Fine Dining</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link active">صفحه اصلی</a>
+          <a href="products.html" class="nav-link">منو و محصولات</a>
+          <a href="about.html" class="nav-link">داستان ما و اصالت</a>
+          <a href="contact.html" class="nav-link">تماس و رزرو میز</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Cart Button -->
+          <button type="button" class="btn-icon open-cart-trigger" title="مشاهده سبد سفارش">
+            <span style="font-size: 1.25rem;">🛒</span>
+            <span class="cart-badge" style="display: none;">۰</span>
+          </button>
+
+          <!-- Telegram Quick Order Button -->
+          <a href="javascript:void(0)" onclick="triggerTelegramOrder()" class="btn btn-telegram btn-sm btn-pill" title="سفارش سریع در تلگرام">
+            <span>✈️ سفارش تلگرام</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button type="button" class="mobile-toggle" onclick="openMobileMenu()" aria-label="منوی موبایل">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="mobile-drawer">
+      <div class="mobile-drawer-content">
+        <div class="mobile-drawer-header">
+          <div class="brand-name-fa" style="font-size: 1.15rem;">زعفران <span>&</span> زغال</div>
+          <button type="button" class="modal-close-btn" style="position: static;" onclick="closeMobileMenu()">✕</button>
+        </div>
+
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link active" onclick="closeMobileMenu()">
+            <span>🏛️</span> صفحه اصلی
+          </a>
+          <a href="products.html" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>🍽️</span> منو و سفارش غذاها
+          </a>
+          <a href="products.html?cat=saffron" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>✨</span> محصولات زعفران قائنات
+          </a>
+          <a href="about.html" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>📖</span> داستان برند و شیوه پخت
+          </a>
+          <a href="contact.html" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span>📅</span> رزرو میز و تماس
+          </a>
+        </nav>
+
+        <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.75rem;">
+          <a href="javascript:void(0)" onclick="triggerTelegramOrder(); closeMobileMenu();" class="btn btn-telegram btn-pill" style="width: 100%;">
+            <span>سفارش مستقیم در تلگرام</span>
+          </a>
+          <div style="font-size: 0.8rem; text-align: center; color: var(--on-surface-muted);">
+            پشتیبانی و سفارش تلفنی: ۰۲۱-۲۲۰۰۰۰۰۰
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80');"></div>
+      <div class="hero-vignette"></div>
+
+      <div class="container hero-content">
+        <div class="hero-subtitle-badge">
+          <span>✨</span>
+          <span>ضیافت عطر اصیل زعفران قائنات بر بستر آتش زغال گردو</span>
+        </div>
+
+        <h1 class="hero-title">
+          تلاقی شکوه <span>مهمان‌نوازی کهن</span> و ظرافت معاصر
+        </h1>
+
+        <p class="hero-description">
+          در «زعفران و زغال»، هر ضیافت روایتی از عطر ناب زعفران سرگل سوپر نگین، پلوهای زرین با ته‌دیگ‌های ترد و برشته، و کباب‌های لطیف مغزپخت‌شده بر زغال چوب بلوط و گردو است. تجربه‌ای لوکس و به یادماندنی از اصالت طعم ایرانی.
+        </p>
+
+        <div class="flex items-center gap-4" style="flex-wrap: wrap;">
+          <a href="products.html" class="btn btn-primary btn-lg btn-pill">
+            <span>مشاهده منو و ثبت سفارش</span>
+            <span>←</span>
+          </a>
+          <a href="contact.html" class="btn btn-secondary btn-lg btn-pill">
+            <span>رزرو میز و تشریفات VIP</span>
+          </a>
+          <button type="button" onclick="triggerTelegramOrder()" class="btn btn-telegram btn-lg btn-pill">
+            <span>✈️ سفارش سریع در تلگرام</span>
+          </button>
+        </div>
+
+        <!-- Metric Badges Strip -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(217, 119, 6, 0.2);">
+          <div style="display: flex; flex-direction: column;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">۱۰۰٪</div>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant);">زعفران خالص قائنات</div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">زغال گردو</div>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant);">پخت دودی بدون دود سیاه</div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">طارم هاشمی</div>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant);">برنج عطری با کره محلی</div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">۳ سالن VIP</div>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant);">میزبانی جلسات و مراسم</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chef's Highlights / Signature Tasting Section -->
+    <section style="padding: 5rem 0; position: relative;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>✦</span> برگزیده‌های تالار زعفران
+          </div>
+          <h2 class="section-title">شاهکارهای سرآشپز بین‌المللی</h2>
+          <p class="section-desc">
+            دست‌پختی ناب با چاشنی سال‌ها تجربه و ادویه‌های دست‌ساز سنتی که خاطره‌ای جاودان در کام شما به جا می‌گذارد.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="card dish-card">
+            <div class="dish-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="چلوکباب سلطانی زعفرانی" class="dish-img" loading="lazy" />
+              <div class="dish-image-vignette"></div>
+              <div class="dish-badges">
+                <span class="badge badge-signature">✦ پیشنهاد سرآشپز</span>
+              </div>
+            </div>
+            <div class="dish-content">
+              <div class="dish-title-row">
+                <h3 class="dish-title-fa">چلوکباب سلطانی زعفرانی</h3>
+              </div>
+              <div class="dish-title-en">Imperial Soltani Kebab</div>
+              <p class="dish-desc">
+                ترکیب اعجاب‌انگیز یک سیخ کباب برگ ممتاز راسته گوسفندی و یک سیخ کباب کوبیده سنتی، خوابانده شده در زعفران قائنات.
+              </p>
+              <div class="dish-footer">
+                <div class="dish-price">
+                  <span class="dish-price-amount">۹۸۰,۰۰۰ تومان</span>
+                  <span class="dish-price-unit">همراه با چلو زعفرانی و کره</span>
+                </div>
+                <div class="flex gap-2">
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="openDishModal('kebab-soltani')">جزییات</button>
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.appCart.addItem('kebab-soltani')">+ سفارش</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card dish-card">
+            <div class="dish-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80" alt="ته‌چین درباری مرغ و خلال پسته" class="dish-img" loading="lazy" />
+              <div class="dish-image-vignette"></div>
+              <div class="dish-badges">
+                <span class="badge badge-gold">★ شاهکار طلایی</span>
+              </div>
+            </div>
+            <div class="dish-content">
+              <div class="dish-title-row">
+                <h3 class="dish-title-fa">ته‌چین درباری مرغ و خلال پسته</h3>
+              </div>
+              <div class="dish-title-en">Royal Saffron Tahchin with Chicken</div>
+              <p class="dish-desc">
+                ته‌چین قالبی با پوسته زرین و کریسپی ته‌دیگ زعفرانی، لایه‌های مغزپخت مرغ ریش‌شده معطر، ماست چکیده و زرشک پفکی.
+              </p>
+              <div class="dish-footer">
+                <div class="dish-price">
+                  <span class="dish-price-amount">۴۹۰,۰۰۰ تومان</span>
+                  <span class="dish-price-unit">سرو قالبی دونفره</span>
+                </div>
+                <div class="flex gap-2">
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="openDishModal('tahchin-morgh')">جزییات</button>
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.appCart.addItem('tahchin-morgh')">+ سفارش</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card dish-card">
+            <div class="dish-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80" alt="باقالی‌پلو با ماهیچه مخصوص گوسفندی" class="dish-img" loading="lazy" />
+              <div class="dish-image-vignette"></div>
+              <div class="dish-badges">
+                <span class="badge badge-signature">✦ انتخاب اشرافی</span>
+              </div>
+            </div>
+            <div class="dish-content">
+              <div class="dish-title-row">
+                <h3 class="dish-title-fa">باقالی‌پلو با ماهیچه مخصوص</h3>
+              </div>
+              <div class="dish-title-en">Baghali Polo with Lamb Shank</div>
+              <p class="dish-desc">
+                ماهیچه گوسفندی کامل پخته شده به شیوه ۶ ساعته فرانسوی-ایرانی در آب‌پیاز و حریره زعفران و هل سبز.
+              </p>
+              <div class="dish-footer">
+                <div class="dish-price">
+                  <span class="dish-price-amount">۱,۱۵۰,۰۰۰ تومان</span>
+                  <span class="dish-price-unit">سرو با برنج دمسیاه شویددار</span>
+                </div>
+                <div class="flex gap-2">
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="openDishModal('baghali-polo')">جزییات</button>
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.appCart.addItem('baghali-polo')">+ سفارش</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="products.html" class="btn btn-primary btn-lg btn-pill">
+            <span>مشاهده تمام ۱۴ آیتم منوی اصلی و محصولات زعفران</span>
+            <span>←</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Philosophy Banner (Editorial Luxury) -->
+    <section style="background: var(--surface-container-low); padding: 5rem 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="section-tag">
+              <span>✦</span> هنر و اصالت پخت
+            </div>
+            <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1.5rem; font-weight: 800;">
+              چرا طعم «زعفران و زغال» با هر جای دیگر متفاوت است؟
+            </h2>
+            <p style="font-size: 1rem; color: var(--on-surface-variant); line-height: 2; margin-bottom: 1.5rem;">
+              در فرهنگ آشپزی سنتی، زعفران تنها یک ادویه نیست؛ بلکه جوهره زندگی، نور و شادمانی است. ما زعفران را مستقیماً از مزارع آفتاب‌گیر قائنات و بدون واسطه تهیه می‌کنیم تا بالاترین درصد کروسین و عطر را حفظ نماید.
+            </p>
+            <p style="font-size: 1rem; color: var(--on-surface-variant); line-height: 2; margin-bottom: 2rem;">
+              پخت بر بستر زغال چوب طبیعی گردو بدون هرگونه مواد اشتعال‌زای شیمیایی انجام می‌پذیرد؛ گوشت‌ها با حرارت یکنواخت و ملایم، آبدار و با رایحه‌ای دودی و اشرافی مغزپخت می‌شوند.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div style="background: var(--surface-container); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">🔥</div>
+                <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">زغال طبیعی گردو</div>
+                <div style="font-size: 0.82rem; color: var(--on-surface-muted);">حرارت پایدار و طعم دودی ملایم بدون بوی گاز یا مواد نفتی</div>
+              </div>
+
+              <div style="background: var(--surface-container); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">🌸</div>
+                <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">زعفران نگین قائنات</div>
+                <div style="font-size: 0.82rem; color: var(--on-surface-muted);">رنگ‌دهی ارگانیک و دم‌کردن سنتی با تکه‌های یخ برای استخراج حداکثر عطر</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position: relative;">
+            <div style="border-radius: var(--radius-xl); overflow: hidden; border: 1px solid rgba(217, 119, 6, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="فضای آشپزی زعفران و زغال" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <div style="position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid rgba(217, 119, 6, 0.35); padding: 1.25rem 1.75rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.6); max-width: 280px;">
+              <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">ضمانت کیفیت</div>
+              <div style="font-size: 0.95rem; color: #fff; font-weight: 700;">استفاده انحصاری از گوشت گرم گوسفندی کشتار روز</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Saffron Gift Box Callout Banner -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="glass-card" style="padding: 3rem; background: linear-gradient(135deg, rgba(47, 43, 39, 0.95), rgba(26, 24, 22, 0.98)); border-color: rgba(217, 119, 6, 0.35);">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class="badge badge-gold" style="margin-bottom: 1rem;">محصولات دست‌چین مزارع قائنات</div>
+              <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; color: #fff;">
+                جعبه‌های کادویی نفیس زعفران اصیل
+              </h2>
+              <p style="font-size: 0.95rem; color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 2rem;">
+                زعفران سرگل سوپر نگین با بالاترین درجه خلوص آزمایشگاهی، در بسته‌بندی‌های خاتم‌کاری صنایع دستی اصفهان همراه هاون برنجی سنتی. بهترین هدیه برای میهمانان گرامی و تشریفات بین‌المللی.
+              </p>
+              <div class="flex gap-4" style="flex-wrap: wrap;">
+                <a href="products.html?cat=saffron" class="btn btn-primary btn-pill">
+                  <span>مشاهده بسته‌های هدیه زعفران</span>
+                  <span>←</span>
+                </a>
+                <a href="javascript:void(0)" onclick="triggerTelegramOrder()" class="btn btn-telegram btn-pill">
+                  <span>سفارش آنی در تلگرام</span>
+                </a>
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80" alt="جعبه زعفران قائنات" style="border-radius: var(--radius-lg); max-width: 100%; border: 1px solid rgba(217, 119, 6, 0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.8);" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Telegram Quick Order Banner -->
+    <section style="background: radial-gradient(circle at center, #1b3648 0%, #101a22 100%); padding: 4.5rem 0; border-top: 1px solid rgba(34, 158, 217, 0.3); border-bottom: 1px solid rgba(34, 158, 217, 0.3);">
+      <div class="container text-center" style="max-width: 760px; margin: 0 auto;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div>
+        <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem;">
+          سفارش سریع و مستقیم از طریق تلگرام
+        </h2>
+        <p style="font-size: 1rem; color: #b4d2e7; line-height: 1.9; margin-bottom: 2rem;">
+          بدون نیاز به ثبت‌نام یا فرآیندهای پیچیده، تنها با یک کلیک لیست غذاها یا بسته‌های زعفران را مستقیماً به ادمین تلگرام ما ارسال کنید و فاکتور رسمی را فوراً دریافت نمایید.
+        </p>
+        <div class="flex justify-center gap-4" style="flex-wrap: wrap;">
+          <button type="button" onclick="triggerTelegramOrder()" class="btn btn-telegram btn-lg btn-pill">
+            <span>ثبت سفارش فاکتور در تلگرام</span>
+            <span>✈️</span>
+          </button>
+          <a href="products.html" class="btn btn-ghost btn-lg btn-pill">
+            <span>انتخاب غذاها از منو</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand-logo" style="margin-bottom: 1.25rem;">
+              <div class="brand-icon">
+                <span style="font-size: 1.4rem; color: var(--primary);">✦</span>
+              </div>
+              <div class="brand-title-box">
+                <div class="brand-name-fa" style="font-size: 1.2rem;">زعفران <span>&</span> زغال</div>
+                <div class="brand-name-en">Saffron & Charcoal</div>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.8; margin-bottom: 1.5rem;">
+              روایتگر شکوه سفره ایرانی با عطر سحرانگیز زعفران سرگل قائنات، گوشت گرم گوسفندی پخته بر زغال گردو و میزبانی شاهانه.
+            </p>
+            <div class="flex gap-2">
+              <a href="https://t.me/saffron_charcoal_admin" target="_blank" rel="noopener noreferrer" class="btn-icon" title="تلگرام">
+                ✈️
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-icon" title="اینستاگرام">
+                📷
+              </a>
+              <a href="tel:02122000000" class="btn-icon" title="تلفن">
+                📞
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">دسترسی سریع</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" class="footer-link">صفحه اصلی</a></li>
+              <li><a href="products.html" class="footer-link">منوی کباب‌ها و غذاها</a></li>
+              <li><a href="products.html?cat=saffron" class="footer-link">محصولات هدیه زعفران</a></li>
+              <li><a href="about.html" class="footer-link">داستان ما و شیوه پخت</a></li>
+              <li><a href="contact.html" class="footer-link">رزرو میز و تشریفات</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">خدمات و ساعات</h4>
+            <ul class="footer-links">
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">پذیرایی ناهار: ۱۲:۰۰ تا ۱۶:۳۰</li>
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">پذیرایی شام: ۱۹:۳۰ تا ۲۳:۳۰</li>
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">ارسال اختصاصی اکسپرس در تهران</li>
+              <li style="color: var(--on-surface-variant); font-size: 0.88rem;">پارکینگ اختصاصی همراه با ولت</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">نشانی و پشتیبانی</h4>
+            <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.8; margin-bottom: 1rem;">
+              تهران، خیابان ولیعصر، نرسیده به میدان تجریش، خیابان زعفرانیه، پلاک ۲۴، عمارت زعفران و زغال
+            </p>
+            <div style="font-size: 0.95rem; color: var(--primary); font-weight: 700;">
+              تلفن تماس: ۰۲۱-۲۲۰۰۰۰۰۰
+            </div>
+            <div style="font-size: 0.88rem; color: var(--on-surface-variant); margin-top: 0.5rem;">
+              آیدی تلگرام: @saffron_charcoal_admin
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            © ۱۴۰۳ تمامی حقوق محفوظ است. عمارت لوکس «زعفران و زغال» (Saffron & Charcoal).
+          </div>
+          <div style="color: var(--primary-light);">
+            آماده بارگذاری مستقیم روی GitHub Pages (بدون نیاز به کامپایل یا بیلد)
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+      <!-- Floating Cart Button -->
+      <button type="button" class="floating-btn-cart open-cart-trigger" title="مشاهده سبد سفارش" style="display: none;">
+        <span style="font-size: 1.4rem;">🛒</span>
+        <span class="cart-badge">۰</span>
+      </button>
+
+      <!-- Floating Telegram Button -->
+      <a href="javascript:void(0)" onclick="triggerTelegramOrder()" class="floating-btn-telegram" title="ثبت سفارش در تلگرام">
+        <span style="font-size: 1.4rem;">✈️</span>
+      </a>
+    </div>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+      <div class="cart-drawer">
+        <div class="cart-drawer-header">
+          <div class="flex items-center gap-2">
+            <span style="color: var(--primary); font-size: 1.25rem;">🛒</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">سبد سفارش شما</h3>
+          </div>
+          <button type="button" class="modal-close-btn close-cart-trigger" style="position: static;">✕</button>
+        </div>
+
+        <div class="cart-drawer-body">
+          <div id="cart-empty-state" style="text-align: center; padding: 3rem 1rem; color: var(--on-surface-muted);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🍽️</div>
+            <div style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">سبد سفارش خالی است</div>
+            <p style="font-size: 0.88rem;">غذاهای مورد علاقه خود را از منو انتخاب کنید.</p>
+            <a href="products.html" class="btn btn-secondary btn-sm btn-pill" style="margin-top: 1.25rem;" onclick="closeCartDrawer()">
+              مشاهده منو و غذاها
+            </a>
+          </div>
+
+          <div id="cart-items-container"></div>
+        </div>
+
+        <div class="cart-drawer-footer">
+          <div class="flex justify-between items-center" style="font-size: 0.9rem; color: var(--on-surface-variant);">
+            <span>مجموع اقلام:</span>
+            <span id="cart-subtotal-price" style="font-weight: 700; color: #fff;">۰ تومان</span>
+          </div>
+
+          <div class="flex justify-between items-center" style="font-size: 1.1rem; font-weight: 800; color: var(--primary); padding-top: 0.5rem; border-top: 1px solid var(--border-subtle);">
+            <span>مبلغ قابل پرداخت:</span>
+            <span id="cart-total-price">۰ تومان</span>
+          </div>
+
+          <button type="button" id="cart-telegram-order-btn" class="btn btn-telegram btn-lg btn-pill" style="width: 100%;" onclick="triggerTelegramOrder()">
+            <span>✈️ ارسال فاکتور و ثبت در تلگرام</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick View Dish Modal -->
+    <div id="dish-detail-modal" class="modal-overlay">
+      <div class="modal-dialog">
+        <button type="button" class="modal-close-btn" onclick="closeDishModal()">✕</button>
+        <div id="dish-detail-content"></div>
+      </div>
+    </div>
+
+    <!-- Telegram Checkout Modal -->
+    <div id="telegram-checkout-modal" class="modal-overlay">
+      <div class="modal-dialog" style="max-width: 520px; padding: 1.75rem;">
+        <button type="button" class="modal-close-btn" onclick="closeTelegramModal()">✕</button>
+        
+        <div class="flex items-center gap-3" style="margin-bottom: 1.25rem;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: #229ed9; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">✈️</div>
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff;">ثبت سفارش در تلگرام</h3>
+            <p style="font-size: 0.82rem; color: var(--on-surface-variant);">اطلاعات زیر برای صدور پیش‌فاکتور در تلگرام استفاده می‌شود.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--surface-container-low); padding: 0.85rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 1.25rem; font-size: 0.88rem;">
+          <div class="flex justify-between items-center" style="margin-bottom: 0.35rem;">
+            <span>تعداد کل آیتم‌ها:</span>
+            <span id="tg-modal-count" style="font-weight: 700; color: var(--primary);">۰</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>مبلغ کل فاکتور:</span>
+            <span id="tg-modal-total" style="font-weight: 800; color: var(--primary);">۰ تومان</span>
+          </div>
+        </div>
+
+        <form id="telegram-order-form" onsubmit="submitTelegramOrder(event)">
+          <div class="form-group">
+            <label class="form-label" for="tg-name">نام و نام‌خانوادگی</label>
+            <input type="text" id="tg-name" class="form-input" placeholder="مثال: دکتر مهرداد کیانی" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-phone">شماره تماس (جهت هماهنگی)</label>
+            <input type="tel" id="tg-phone" class="form-input" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-type">نحوه دریافت سفارش</label>
+            <select id="tg-type" class="form-select">
+              <option value="ارسال با پیک اکسپرس به آدرس">ارسال با پیک اکسپرس به آدرس</option>
+              <option value="تحویل حضوری در رستوران (بیرون‌بر)">تحویل حضوری در رستوران (بیرون‌بر)</option>
+              <option value="سرو روی میز داخل رستوران">سرو روی میز داخل رستوران (حضور مشتری)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-address">آدرس تحویل یا شماره میز</label>
+            <textarea id="tg-address" class="form-textarea" rows="2" placeholder="نشانی دقیق، زنگ و طبقه (یا شماره میز در صورت حضور)"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tg-notes">یادداشت و ترجیحات (اختیاری)</label>
+            <input type="text" id="tg-notes" class="form-input" placeholder="مثلاً: بدون پیاز، سس اضافه، نان داغ" />
+          </div>
+
+          <div class="flex gap-3" style="margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-telegram btn-lg btn-pill" style="flex: 1;">
+              <span>ارسال مستقیم به تلگرام</span>
+              <span>✈️</span>
+            </button>
+            <button type="button" class="btn btn-ghost btn-lg btn-pill" onclick="closeTelegramModal()">
+              انصراف
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Pure Standalone Script -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
